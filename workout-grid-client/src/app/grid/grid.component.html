@@ -5,4 +5,9 @@
       {{ button.label }}
     </button>
   </div>
+  <button [ngClass]="gridComplete ? 'bg-green-500': 'bg-gray-800'" [disabled]="!gridComplete" (click)="resetGrid()"
+    class="mt-4  text-white p-2 rounded">
+    Reset Cycle
+  </button>
+  <span *ngIf="resetComplete" class="ml-4 text-green-500">Grid reset!</span>
 </div>

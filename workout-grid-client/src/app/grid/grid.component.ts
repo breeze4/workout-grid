@@ -20,6 +20,9 @@ export class GridComponent {
     confirmUncomplete: false,
   }));
 
+  gridComplete = false
+  resetComplete = false
+
   constructor() {
     this.loadButtonLabels();
   }
@@ -50,6 +53,8 @@ export class GridComponent {
       button.confirmUncomplete = false;
       if (this.checkForGridCompleteness()) {
         console.log('buttons all complete')
+        this.gridComplete = true
+
       }
     }
   }
@@ -66,5 +71,13 @@ export class GridComponent {
 
   checkForGridCompleteness(): boolean {
     return this.buttons.every((button => button.completed))
+  }
+
+  resetGrid(): void {
+    this.buttons.forEach((button) => button.completed = false)
+    this.resetComplete = true;
+    setTimeout(() => {
+      this.resetComplete = false;
+    }, 2000);
   }
 }
