@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import DATA from '../../data.json';
+
 type GridButton = {
   label: string
   completed: boolean
@@ -36,6 +38,15 @@ export class GridComponent {
           button.label = parsedLabels[index].label;
         }
       });
+    } else {
+      const defaultLabels = DATA;
+      this.buttons.forEach((button, index) => {
+        if (defaultLabels[index]) {
+          button.label = defaultLabels[index].label;
+        }
+      });
+      localStorage.setItem('buttonLabels', JSON.stringify(this.buttons));
+
     }
   }
 
