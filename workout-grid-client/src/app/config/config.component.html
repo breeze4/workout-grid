@@ -1,0 +1,10 @@
+<div class="p-4">
+  <h2 class="text-2xl mb-4">Configure Button Labels</h2>
+  <div *ngFor="let button of buttons; let i = index" class="mb-4">
+    <label class="block mb-2">Button {{ i + 1 }} Label:</label>
+    <input type="text" [(ngModel)]="button.label" class="w-full p-2 border rounded" />
+  </div>
+  <button (click)="saveConfig()" class="mt-4 bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+    Save Configuration
+  </button>
+</div>
